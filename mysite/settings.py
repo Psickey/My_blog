@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'psikey.herokuapp.com']
 SITE_ID = 1
 
 INSTALLED_APPS = [
-    'blog',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
