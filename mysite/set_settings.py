@@ -24,7 +24,7 @@ if socket.gethostname() in dev_machine:
 
     SECURE_SSL_REDIRECT = False
 else:
-    DEBUG = True
+    DEBUG = False
 
     DATABASES = {
         'default': {'ENGINE': os.environ.get('DB_ENGINE'),
