@@ -6,6 +6,7 @@ import socket
 dev_machine = ('Psicks')
 
 if socket.gethostname() in dev_machine:
+    DEBUG = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -23,6 +24,7 @@ if socket.gethostname() in dev_machine:
 
     SECURE_SSL_REDIRECT = False
 else:
+    DEBUG = False
 
     SESSION_COOKIE_SECURE = True
 

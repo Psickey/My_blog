@@ -29,7 +29,7 @@ MANAGERS = ADMINS
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'u1x2mr^#&5^%^=lphveo*wl6t2g4!(1$5tbl@d5%#q4=q)7p#s')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = set_settings.DEBUG
 
 ALLOWED_HOSTS = ['127.0.0.1', 'psikey.herokuapp.com']
 
