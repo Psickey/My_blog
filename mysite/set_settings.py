@@ -26,6 +26,8 @@ if socket.gethostname() in dev_machine:
 else:
     DEBUG = True
 
+    DATABASES = {'default': {} }
+
     SESSION_COOKIE_SECURE = True
 
     CSRF_COOKIE_SECURE = True
