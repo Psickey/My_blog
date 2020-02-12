@@ -1,0 +1,71 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+{% load social_share %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <h5 class="date">
+    Published {{ post.publish }}
+  </h5>
+  {{ post.body|markdown }}
+  <p id="through_mail">
+    <a href="{% url "blog:post_share" post.id %}">
+      Share this post through mail
+    </a>
+  </p>
+  <div id="social_share">
+    <span>Or via socials:</span>
+    <ul class="list-group list-group-horizontal">
+      {% post_to_facebook "{{ post.title }}" "Post to Facebook" %}
+      {% post_to_twitter "Check it out! {{post.title}}." "" %}
+      {% post_to_reddit "Take a look: {{post.title}}" " " %}
+      {% post_to_telegram "Check this: {{post.title}}" "" %}
+    </ul>
+  </div>
+  <br>
+  <hr class="hr-social">
+  <h2>Similar Posts</h2>
+  {% for post in similar_posts %}
+  <ul>
+    <li>
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </li>
+  </ul>
+  {% empty %}
+    There are not similar posts yet.
+  {% endfor %}
+  {% with comments.count as total_comments %}
+    <h2>
+      {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+  {% endwith %}
+  {% for comment in comments %}
+    <div class="comment">
+      <p class="info">
+        <span id="comment_info">Comment {{ forloop.counter }} by</span>
+         <span class="comment_by">{{ comment.name }}</span><br>
+         {{ comment.body }} <br><br>
+        <span id="comment_date">{{ comment.created }}</span>
+      </p>
+      <hr class="hr-dotted">
+    </div>
+  {% empty %}
+    <p>There are no comments yet.</p>
+  {% endfor %}
+  {% if new_comment %}
+    <h2>Your comment has been added.</h2>
+  {% else %}
+    <h2>Add a new comment</h2>
+    <form action="." method="post">
+      <div id="add_comment">
+        <table>
+          {{ comment_form.as_table }}
+          {% csrf_token %}
+        </table>
+      </div>
+      <button type="submit" class="btn btn-secondary">Add comment</button>
+    </form>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Psikey's Blog{% endblock %}
+{% load blog_tags %}
+
+{% block content %}
+<div id="archive_list">
+    {% for year, post_by_year in posts_by_year %}
+    <h5 class="date">
+        {{ year }}
+    </h5>
+    <hr id="year-hr">
+    {% for post in post_by_year %}
+    <div class="row">
+        <div class="col-8 col-sm-4">
+            <div id="post_time">
+                <hr id="hr-time">
+                <time datetime="{{ post.publish }}">
+                    <span class="month">{{ post.publish|date:"M" }}</span>
+                    <span class="day">{{ post.publish|date:"d" }}</span>
+                </time> 
+            </div>
+        </div>
+        <div class="col-4 col-sm-8" id="arc_title">
+            <h2>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                </a>
+            </h2>    
+        </div>
+    </div> 
+    {% endfor %}
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

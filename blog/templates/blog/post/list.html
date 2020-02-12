@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+
+{% block title %}Psikey's Blog{% endblock %}
+
+{% block content %}
+<div id="article_list">
+   {% if tag %}
+      <h3 id="tagged">Posts tagged with "{{ tag.name }}"</h3>
+    {% endif %}
+  {% for post in posts %}
+    <h2>
+      <a href="{{ post.get_absolute_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <h5 class="date">
+      Published {{ post.publish }}
+    </h5>
+    <br>
+    {{ post.body|markdown|truncatewords_html:50 }}
+    <p class="tags">
+      Tags:
+      {% for tag in post.tags.all %}
+        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+          {{ tag.name }}
+        </a>
+        {% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    </p>
+    <hr class="hr-primary">
+    <br>
+  {% endfor %}
+  {% include "blog/pagination.html" with page=posts %}
+</div>
+{% endblock %}
