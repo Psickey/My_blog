@@ -26,17 +26,6 @@ if socket.gethostname() in dev_machine:
 else:
     DEBUG = True
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ.get("DB_NAME", ""),
-            'USER': os.environ.get("DB_USER", ""),
-            'PASSWORD': os.environ.get("DB_PASSWORD", ""),
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
-
     SESSION_COOKIE_SECURE = True
 
     CSRF_COOKIE_SECURE = True
