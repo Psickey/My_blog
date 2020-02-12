@@ -26,7 +26,14 @@ if socket.gethostname() in dev_machine:
 else:
     DEBUG = False
 
-    DATABASES = {'default': {} }
+    DATABASES = {
+        'default': {'ENGINE': os.environ('DB_ENGINE'),
+                    'NAME': os.environ('DB_NAME'),
+                    'USER': os.environ('DB_USER'),
+                    'PASSWORD': os.environ('DB_PASSWORD'),
+                    'HOST': os.environ('DB_HOST'),
+                    'PORT': '5432'}
+    }
 
     SESSION_COOKIE_SECURE = True
 
