@@ -136,5 +136,3 @@ dmypy.json
 
 #PyCharm
 .idea
-
-blog/migrations/
