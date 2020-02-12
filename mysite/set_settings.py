@@ -24,7 +24,7 @@ if socket.gethostname() in dev_machine:
 
     SECURE_SSL_REDIRECT = False
 else:
-    DEBUG = False
+    DEBUG = True
 
     SESSION_COOKIE_SECURE = True
 
