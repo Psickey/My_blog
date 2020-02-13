@@ -1,3 +1,7 @@
+#article_list h2 p {
+    font-size: 16px;
+}
+
 .date {
     font-style: italic;
 }
