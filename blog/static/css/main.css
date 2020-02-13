@@ -7,10 +7,8 @@ body {
     font-size: 16px;
     color: white;
 
-    overflow-x: hidden;
-    
     -webkit-font-smoothing: antialiased;
-    /* -webkit-overflow-scrolling: touch; */
+    -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -146,6 +144,7 @@ footer {
 
 .page-footer ul li {
     background: transparent;
+    padding: 0.5em;
 }
 
 .back-to-top {
