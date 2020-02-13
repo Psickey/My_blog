@@ -1,0 +1,31 @@
+#archive_list .date {
+    color: #ff1a1a;
+    font-style: normal;
+    font-size: 5em;
+}
+
+#year-hr {
+    background-image: -webkit-linear-gradient(left, rgba(217, 244, 66, 0.8), rgba(244, 188, 66, 0.6), rgba(0,0,0,0));
+}
+
+#hr-time {
+    margin-bottom: 0;
+    background-image: -webkit-linear-gradient(left, rgba(12, 10, 167, 0.8), rgba(26, 221, 235, 0.6), rgba(0,0,0,0));
+}
+
+.day {
+    color: green;
+    margin: 5px;
+}
+.month {
+    color: green;
+}
+
+#post_time {
+    margin-bottom: 30px;
+}
+
+#arc_title {
+    margin-top: -4px;
+    margin-left: -25px;
+}
