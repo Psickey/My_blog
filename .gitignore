@@ -137,6 +137,6 @@ dmypy.json
 #PyCharm
 .idea
 
-/blog/migrations
+/blog/migrations/
 
-/staticfiles
+/staticfiles/
