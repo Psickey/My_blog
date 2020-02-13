@@ -89,7 +89,7 @@
     border-radius: 4px;
     margin: 3px 0;
     box-sizing: border-box;
-    width: 53%;
+    width: auto;
     height: 50px;
     resize: horizontal;
     border-color: transparent;
