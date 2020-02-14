@@ -36,6 +36,7 @@
   {% empty %}
     There are not similar posts yet.
   {% endfor %}
+  <hr class="hr-social">
   {% with comments.count as total_comments %}
     <h2>
       {{ total_comments }} comment{{ total_comments|pluralize }}
@@ -49,7 +50,7 @@
          {{ comment.body }} <br><br>
         <span id="comment_date">{{ comment.created }}</span>
       </p>
-      <hr class="hr-dotted">
+      <hr class="hr-social">
     </div>
   {% empty %}
     <p>There are no comments yet.</p>
