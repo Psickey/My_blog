@@ -70,34 +70,36 @@
             <a class="nav-link" href="/archives">Archives</a>
           </li>
         </ul>
-        <button id="sidebarCollapse" class="btn btn-outline-info btn-sm" type="button">
-          <i class="fa fa-info-circle"></i><span class="sr-only">Toggle Menu</span>
-        </button>
       </div>
     </nav>
-    <div class="wrapper d-flex align-items-stretch">
-      <nav id="sidebar" class="active">
-        <h3 class="side-heads">Contact me on</h3>
+    <nav class="navbar navbar-expand-sm" id="top_nav">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="true">Contact</a>
+        <a class="nav-item nav-link" id="nav-latest_posts-tab" data-toggle="tab" href="#nav-latest_posts" role="tab" aria-controls="nav-latest_posts" aria-selected="false">Latest posts</a>
+        <a class="nav-item nav-link" id="nav-commented_posts-tab" data-toggle="tab" href="#nav-commented_posts" role="tab" aria-controls="nav-commented_posts" aria-selected="false">Most commented posts</a>
+        <a class="nav-item nav-link" id="nav-also-tab" data-toggle="tab" href="#nav-also" role="tab" aria-controls="nav-also" aria-selected="false">Also</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
         <div id="social">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item flex-fill">
               <a href="https://github.com/Psickey" target="_blank">GitHub<span><i class="fab fa-github fa-2x"></i></span></a></li>
-            <li class="list-group-item">
+            <li class="list-group-item flex-fill">
               <a href="mailto:pkeynevernaton@gmail.com" target="_blank">Mail<span><i class="far fa-envelope fa-2x"></i></span></a></li>
-            <li class="list-group-item">
+            <li class="list-group-item flex-fill">
               <a href="https://t.me/Psikey" target="_blank">Telegram<span><i class="fab fa-telegram fa-2x"></i></span></a></li>
-            <li class="list-group-item">
+            <li class="list-group-item flex-fill">
               <a href="https://steamcommunity.com/id/Psickey" target="_blank">Steam<span><i class="fab fa-steam fa-2x"></i></span></a></li>
           </ul>
         </div>
-        <h4 style="text-align: center;">Also</h4>
-        <a href="{% url "blog:post_feed" %}" id="rss" target="_blank">
-          My RSS<i class="fas fa-rss-square fa-2x" style="margin-left: 10px;"></i></a>
-        <br>
-        <h3 class="side-heads">Latest posts</h3>
+      </div>
+      <div class="tab-pane fade" id="nav-latest_posts" role="tabpanel" aria-labelledby="nav-latest_posts-tab">
         {% show_latest_posts 3 %}
+      </div>
+      <div class="tab-pane fade" id="nav-commented_posts" role="tabpanel" aria-labelledby="nav-commented_posts-tab">
         <div id="commented-posts">
-          <h3 class="side-heads">Most commented posts</h3>
           {% get_most_commented_posts as most_commented_posts %}
           <ul class="list-group list-group-flush">
             {% for post in most_commented_posts %}
@@ -107,16 +109,19 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+      </div>
+      <div class="tab-pane fade" id="nav-also" role="tabpanel" aria-labelledby="nav-also">
+        <a href="{% url "blog:post_feed" %}" id="rss" target="_blank">
+          My RSS<i class="fas fa-rss-square fa-2x" style="margin-left: 10px; margin-top: 10px;"></i></a>
         <p id="total-posts">I've written {% total_posts %} posts so far</p>
-      </nav>
-      <div class="container" style="margin-top:30px">
-        <div class="row">
-          <div class="col-10">
-            <div class="content overflow-auto scrollbar-light-blue">
-              {% block content %}
-              {% endblock %}
-            </div>
+      </div>
+    </div>
+    <div class="container" style="margin-top:30px">
+      <div class="row">
+        <div class="col-10">
+          <div class="content overflow-auto scrollbar-light-blue">
+            {% block content %}
+            {% endblock %}
           </div>
         </div>
       </div>
@@ -137,15 +142,10 @@
     </footer>
   </div>
   <!-- javascript at the bottom for fast page loading -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script>
-    $(document).ready(function () {
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        });
-    });
     $(document).ready(function(){
 	    $(window).scroll(function () {
 			  if ($(this).scrollTop() > 50) {
