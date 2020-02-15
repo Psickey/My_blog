@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import socket
 from . import set_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -148,12 +149,13 @@ STATICFILES_DIRS = (
 )
 
 # SMTP server settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+if socket.gethostname() not in "Psicks":
+    EMAIL_BACKEND = set_settings.EMAIL_BACKEND
+    EMAIL_HOST = set_settings.EMAIL_HOST
+    EMAIL_HOST_USER = set_settings.EMAIL_HOST_USER
+    EMAIL_HOST_PASSWORD = set_settings.EMAIL_HOST_PASSWORD
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 
 # Logging setup https://docs.djangoproject.com/en/3.0/topics/logging/
