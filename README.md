@@ -3,7 +3,7 @@
 
 ## Структура проекта
 
-...bash
+```bash
 My_blog
 |       
 +---blog
@@ -36,4 +36,4 @@ My_blog
     +---images
     |           
     \---webfonts
-...     
+```    
