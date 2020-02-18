@@ -125,3 +125,11 @@ def archives(request):
         posts_by_year[year].append(post)
     posts_by_year = sorted(posts_by_year.items())
     return render(request, 'blog/archives.html', {'posts_by_year': posts_by_year})
+
+
+def handler404(request, exception):
+    return render(request, 'blog/404.html', status=404)
+
+
+def handler500(request):
+    return render(request, 'blog/500.html', status=500)

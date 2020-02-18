@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
+from django.conf.urls import handler404, handler500
 
 sitemaps = {
     'posts': PostSitemap,
@@ -28,3 +29,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
 ]
+
+
+handler404 = 'blog.views.handler404'
+handler500 = 'blog.views.handler500'
