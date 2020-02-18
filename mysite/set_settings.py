@@ -6,7 +6,7 @@ import socket
 dev_machine = ('Psicks')
 
 if socket.gethostname() in dev_machine:
-    DEBUG = False
+    DEBUG = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
