@@ -1,2 +1,51 @@
-# My_blog
-This is my personal website written in Django
+# My Blog
+Мой вебсайт написанный на Django и стилизованный с помощью Bootstrap4.
+
+## Структура проекта
+```
+My_blog
+|       
++---blog
+|   |   
+|   +---static
+|   |   +---css
+|   |   +---fonts
+|   |   +---images       
+|   |   \---webfonts
+|   |           
+|   +---templates
+|   |   +---blog
+|   |   |   |   
+|   |   |   \---post
+|   |   |           
+|   |   \---django_social_share
+|   |       \---templatetags
+|   |               
+|   +---templatetags
+|           
++---mysite
+|           
+\---staticfiles
+    |   staticfiles.json
+    |   
+    +---admin
+    |                   
+    +---css
+    |            
+    +---images
+    |           
+    \---webfonts
+```   
+
+## Функционал сайта
+* Posts
+* Comments
+* Pagination
+* Tags
+* RSS feed
+* Trigram search
+* Editing in Markdown
+* Sitemap
+* Archives
+* Post share via mail or socials
+
