@@ -36,11 +36,12 @@
   {% empty %}
     There are not similar posts yet.
   {% endfor %}
+  <hr class="hr-social">
   <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-      this.page.url = "{{ post.get_absolute_url }}";
-      this.page.identifier = "{% url 'blog:post_detail' post.publish.year post.publish.month post.publish.day post.slug %}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://127.0.0.1:8000/{{ post.get_absolute_url }}";
+      this.page.identifier = "{{ post.get_absolute_url }}";
       };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
@@ -49,8 +50,9 @@
       (d.head || d.body).appendChild(s);
       })();
     </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                      
-  <hr class="hr-social">
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>    
+  <!-- Система комментариев временно заменена на disqus-->                  
+  <!-- <hr class="hr-social">
   {% with comments.count as total_comments %}
     <h2>
       {{ total_comments }} comment{{ total_comments|pluralize }}
@@ -82,5 +84,6 @@
       </div>
       <button type="submit" class="btn btn-secondary">Add comment</button>
     </form>
-  {% endif %}
+  {% endif %} -->
+  <br>
 {% endblock %}
