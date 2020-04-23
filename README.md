@@ -39,7 +39,7 @@ My_blog
 
 ## Функционал сайта
 * Posts
-* Comments
+* Comments (В качестве системы комментирования временно используется disqus)
 * Pagination
 * Tags
 * RSS feed
