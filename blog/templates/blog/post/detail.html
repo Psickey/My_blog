@@ -40,7 +40,7 @@
     <script>
       var disqus_config = function () {
       this.page.url = "{{ post.get_absolute_url }}";
-      this.page.identifier = "{{ post.title }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.identifier = "{{ post.get_absolute_url }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
