@@ -7,8 +7,7 @@ from taggit.managers import TaggableManager
 from markdown import markdown
 
 
-# Create your models here.
-
+# fix
 
 # Фильтрация только опубликованных объектов
 class PublishedManager(models.Manager):
