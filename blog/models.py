@@ -7,8 +7,6 @@ from taggit.managers import TaggableManager
 from markdown import markdown
 
 
-# fix
-
 # Фильтрация только опубликованных объектов
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -45,7 +43,7 @@ class Post(models.Model):
                              self.slug])
 
     def save(self):
-        self.markdown_field = markdown(self.body)
+        self.markdown = markdown(self.body)
         super(Post, self).save()
 
     class Meta:
