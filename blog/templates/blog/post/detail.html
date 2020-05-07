@@ -9,7 +9,7 @@
   <h5 class="date">
     Published {{ post.publish }}
   </h5>
-  {{ post.markdown_field }}
+  {{ post.markdown_field|markdown }}
   <p id="through_mail">
     <a href="{% url 'blog:post_share' post.id %}">
       Share this post through mail
