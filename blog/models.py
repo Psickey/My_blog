@@ -43,7 +43,7 @@ class Post(models.Model):
                              self.slug])
 
     def save(self):
-        self.markdown = markdown(self.body)
+        self.markdown_field = markdown(self.body)
         super(Post, self).save()
 
     class Meta:
