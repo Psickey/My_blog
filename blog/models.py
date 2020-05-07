@@ -23,7 +23,6 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='blog_posts')
     body = models.TextField()
-    markdown_field = models.TextField(editable=False)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -41,10 +40,6 @@ class Post(models.Model):
                              self.publish.month,
                              self.publish.day,
                              self.slug])
-
-    def save(self):
-        self.markdown_field = markdown(self.body)
-        super(Post, self).save()
 
     class Meta:
         ordering = ('-publish',)
