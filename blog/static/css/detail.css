@@ -128,3 +128,7 @@
 #through_mail {
     margin-bottom: 0;
 }
+
+#markbody h2, h3, h4, h5 {
+    color: #cc3300;
+}
